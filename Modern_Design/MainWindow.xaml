@@ -1,0 +1,207 @@
+﻿<Window x:Class="Modern_Design.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Modern_Design"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <!--Шапка меню -->
+        <Grid Grid.ColumnSpan="15" Grid.RowSpan="4" Grid.Row="0" Grid.Column="0" Background="#0173c7">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock Text="Входящие" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" ></TextBlock>
+            </Grid>
+            <Grid Grid.Row="1">
+                <TabControl BorderThickness="0" BorderBrush="#0173c7" >
+                    <TabItem Header="Файл" Background="#0173c7">
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox Background="Transparent" BorderThickness="0"  Height="50" Width="100">
+                                <TextBlock TextWrapping="Wrap" Text="Включить/отключить уведомление"></TextBlock>
+                            </CheckBox>
+                            <Button Background="Transparent" BorderThickness="0"  Height="50" Width="100">
+                                <TextBlock TextWrapping="Wrap" Text="Подключиться к почтовому клиенту"></TextBlock>
+                            </Button>
+                            <Button Background="Transparent" BorderThickness="0"  Height="50" Width="105">
+                                <TextBlock TextWrapping="Wrap" Text="Пользовательские настройки"></TextBlock>
+                            </Button>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Главное" Background="#0173c7">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Background="Transparent" BorderThickness="0"  Height="50" Width="55">
+                                <TextBlock TextWrapping="Wrap" Text="Показать таблицу"></TextBlock>
+                            </Button>
+                            <Button Background="Transparent" BorderThickness="0"  Height="50" Width="55">
+                                <TextBlock TextWrapping="Wrap" Text="Создать запрос"></TextBlock>
+
+                            </Button>
+                            <Button Background="Transparent" BorderThickness="0" Height="50" Width="85">
+                                <TextBlock TextWrapping="Wrap" Text="Редактировать запрос"></TextBlock>
+                            </Button>
+                            <Button Background="Transparent" BorderThickness="0" Height="50" Width="85">
+                                <TextBlock TextWrapping="Wrap" Text="Создать запрос на основании"></TextBlock>
+
+                            </Button>
+                            <Button Background="Transparent" BorderThickness="0" Height="50" Width="50">
+                                <TextBlock TextWrapping="Wrap" Text="Удалить"></TextBlock>
+                            </Button>
+                            <Button Background="Transparent" BorderThickness="0" Height="50" Width="100">
+                                <TextBlock TextWrapping="Wrap" Text="Диаграмма занятости сотрудников"></TextBlock>
+                            </Button>
+                        </StackPanel>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </Grid>
+<!--Располение всех департаментов-->
+        <Grid  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="20">
+            <StackPanel>
+                <Expander Header="Избранные">
+                    <StackPanel>
+                        <Button BorderThickness="0" Content="Content"></Button>
+                        <Button BorderThickness="0" Content="Content"></Button>
+                        <Button BorderThickness="0" Content="Content"></Button>
+                        <Button BorderThickness="0" Content="Content"></Button>
+                    </StackPanel>
+                </Expander>
+                <Expander Header="Входящие">
+                    <ListBox>
+                        <Button BorderThickness="0" Content="Content"></Button>
+                        <Button BorderThickness="0" Content="Content"></Button>
+                        <Button BorderThickness="0" Content="Content"></Button>
+                        <Button BorderThickness="0" Content="Content"></Button>
+                    </ListBox>
+                    <!--<StackPanel>
+                        <Button BorderThickness="0" Content="Content"></Button>
+                        <Button BorderThickness="0" Content="Content"></Button>
+                        <Button BorderThickness="0" Content="Content"></Button>
+                        <Button BorderThickness="0" Content="Content"></Button>
+                    </StackPanel>-->
+                </Expander>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="2">
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="25"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0"></TextBox>
+                    <Button Background="Transparent" FontSize="12" Content="o" Grid.Column="1"></Button>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Foreground="#0173c7" FontSize="14" Content="Все" BorderThickness="0" Background="Transparent" FontWeight="Bold"></Button>
+                    <Button Grid.Column="1" Foreground="#0173c7" FontSize="14" Content="Непрочитанные" BorderThickness="0" Background="Transparent" FontWeight="Bold"></Button>
+
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <!--Задачи -->
+        <Grid Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="17">
+            <ListBox
+        ItemsSource="{Binding d}"
+             Name="lvUsers"
+                BorderThickness="0">
+                <ListBox.GroupStyle>
+                    <GroupStyle>
+                        <GroupStyle.Panel>
+                            <ItemsPanelTemplate>
+                                <VirtualizingStackPanel Orientation="Vertical" />
+                            </ItemsPanelTemplate>
+                        </GroupStyle.Panel>
+                        <GroupStyle.ContainerStyle>
+                            <Style TargetType="{x:Type GroupItem}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <Expander
+                                        Padding="0"                                           
+                                        BorderThickness="0"
+                                        Header="{Binding Name}"
+                                        IsExpanded="True">
+                                                <ItemsPresenter/>
+                                            </Expander>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </GroupStyle.ContainerStyle>
+                    </GroupStyle>
+                </ListBox.GroupStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderThickness="0">
+                            <Grid>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Name}" />
+                                    <TextBlock Text="{Binding Age}"></TextBlock>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="Padding" Value="0" />
+                        <Setter Property="Margin" Value="0" />
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
+
+
+        </Grid>
+    </Grid>
+</Window>
