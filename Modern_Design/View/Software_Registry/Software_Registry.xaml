@@ -1,0 +1,104 @@
+﻿<Window x:Class="Modern_Design.View.Software_Registry.Software_Registry"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Modern_Design.ViewModel" xmlns:control="http://filterdatagrid.control.com/2021" 
+        mc:Ignorable="d"
+        Title="Software_Registry" Height="450" Width="800">
+   
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="60"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Horizontal">
+                <Button Command="{Binding OpenWindowAddSoftware_Registry}" Background="Transparent" BorderThickness="0" Height="50" Width="100">
+                    <TextBlock TextWrapping="Wrap" Text="Добавить"></TextBlock>
+                </Button>
+                <Button Command="{Binding OpenWindowEditSoftware_Registry}" Background="Transparent" BorderThickness="0" Height="50" Width="100">
+                    <TextBlock TextWrapping="Wrap" Text="Редактировать"></TextBlock>
+                </Button>
+                <Button Command="{Binding OpenWindowDeleteSoftware_Registry}" Background="Transparent" BorderThickness="0" Height="50" Width="100">
+                    <TextBlock TextWrapping="Wrap" Text="Удалить"></TextBlock>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <control:FilterDataGrid ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                                    AutoGenerateColumns="False"
+                                    ItemsSource="{Binding software_Registries}">
+                <control:FilterDataGrid.Columns>
+                    <control:DataGridTemplateColumn
+                    FieldName="id"
+                    Header="Номер"
+                    IsColumnFiltered="True"
+                    SortMemberPath="id">
+                        <control:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate >
+                                <TextBlock Text="{Binding id}" />
+                            </DataTemplate>
+                        </control:DataGridTemplateColumn.CellTemplate>
+                    </control:DataGridTemplateColumn>
+                    <control:DataGridTextColumn
+                    Binding="{Binding priority}"
+                    Header="Приоритет"
+                    IsColumnFiltered="True" />
+                    <control:DataGridTextColumn
+                    Binding="{Binding product_type}"
+                    Header="Вид продукции(Внутренний, внешний)"
+                    IsColumnFiltered="True" />
+                    <control:DataGridTextColumn
+                    Binding="{Binding product_name}"
+                    Header="Имя продукта"
+                    IsColumnFiltered="True" />
+                    <control:DataGridTextColumn
+                    Binding="{Binding short_description}"
+                    Header="Краткое описание"
+                    IsColumnFiltered="True" />
+                    <control:DataGridTextColumn
+                    Binding="{Binding type_of_product}"
+                    Header="Тип продукта"
+                    IsColumnFiltered="True" />
+                    <control:DataGridTextColumn
+                    Binding="{Binding customer}"
+                    Header="Заказчик"
+                    IsColumnFiltered="True" />
+                    <control:DataGridTextColumn
+                    Binding="{Binding owner}"
+                    Header="Владелец"
+                    IsColumnFiltered="True" />
+                    <control:DataGridTextColumn
+                    Binding="{Binding main_developer}"
+                    Header="Главный разработчик"
+                    IsColumnFiltered="True" />
+                    <control:DataGridTextColumn
+                    Binding="{Binding number_of_users}"
+                    Header="Количество пользователей"
+                    IsColumnFiltered="True" />
+                    <control:DataGridTextColumn
+                    Binding="{Binding stage}"
+                    Header="Этап"
+                    IsColumnFiltered="True" />
+                    <control:DataGridTextColumn
+                    Binding="{Binding maintenance}"
+                    Header="Cопровождение"
+                    IsColumnFiltered="True" />
+                    <control:DataGridTextColumn
+                    Binding="{Binding link_repository}"
+                    Header="Cсылка на проект"
+                    IsColumnFiltered="True" />
+                    <control:DataGridTextColumn
+                    Binding="{Binding link_description}"
+                    Header="Ссылка на описание"
+                    IsColumnFiltered="True" />
+                    <control:DataGridTextColumn
+                    Binding="{Binding comments}"
+                    Header="Комментарии"
+                    IsColumnFiltered="True" />
+                </control:FilterDataGrid.Columns>
+            </control:FilterDataGrid>
+        </Grid>
+    </Grid>
+</Window>

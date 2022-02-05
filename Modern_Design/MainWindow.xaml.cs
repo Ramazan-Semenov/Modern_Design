@@ -35,9 +35,9 @@ namespace Modern_Design
             d.Add(new User() { Name = "Sammy Doe", Age = 13, Sex = DateTime.Parse("12/12/2021") });
            // lvUsers.ItemsSource = items;
 
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(d);
-            PropertyGroupDescription groupDescription = new PropertyGroupDescription("Sex");
-            view.GroupDescriptions.Add(groupDescription);
+            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(d);
+            //PropertyGroupDescription groupDescription = new PropertyGroupDescription("Sex");
+            //view.GroupDescriptions.Add(groupDescription);
         }
     }
 

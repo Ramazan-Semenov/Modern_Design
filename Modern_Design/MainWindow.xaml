@@ -6,7 +6,15 @@
         xmlns:local="clr-namespace:Modern_Design"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1300">
+    <Window.Resources>
+        <CollectionViewSource x:Key="Lis" Source="{Binding d}">
+            <CollectionViewSource.GroupDescriptions>
+                <PropertyGroupDescription PropertyName="Sex"></PropertyGroupDescription>
+            </CollectionViewSource.GroupDescriptions>
+        </CollectionViewSource>
+    </Window.Resources>
     <Grid>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -79,6 +87,9 @@
                             <Button Background="Transparent" BorderThickness="0"  Height="50" Width="55">
                                 <TextBlock TextWrapping="Wrap" Text="Показать таблицу"></TextBlock>
                             </Button>
+                            <Button Background="Transparent" BorderThickness="0" Height="50" Width="100">
+                                <TextBlock TextWrapping="Wrap" Text="Новый проект"></TextBlock>
+                            </Button>
                             <Button Background="Transparent" BorderThickness="0"  Height="50" Width="55">
                                 <TextBlock TextWrapping="Wrap" Text="Создать запрос"></TextBlock>
 
@@ -95,6 +106,10 @@
                             </Button>
                             <Button Background="Transparent" BorderThickness="0" Height="50" Width="100">
                                 <TextBlock TextWrapping="Wrap" Text="Диаграмма занятости сотрудников"></TextBlock>
+                            </Button>
+                           
+                            <Button Background="Transparent" BorderThickness="0" Height="50" Width="100">
+                                <TextBlock TextWrapping="Wrap" Text="Реестр ПО"></TextBlock>
                             </Button>
                         </StackPanel>
                     </TabItem>
@@ -152,7 +167,8 @@
         <!--Задачи -->
         <Grid Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="17">
             <ListBox
-        ItemsSource="{Binding d}"
+                
+        ItemsSource="{Binding Source={ StaticResource Lis}}"
              Name="lvUsers"
                 BorderThickness="0">
                 <ListBox.GroupStyle>
@@ -200,8 +216,10 @@
                     </Style>
                 </ListBox.ItemContainerStyle>
             </ListBox>
-
-
+        </Grid>
+        <Grid  Grid.Row="5" Grid.Column="5" Grid.RowSpan="19" Grid.ColumnSpan="10">
+            
+            <!--<Frame Background="Aqua"></Frame>-->
         </Grid>
     </Grid>
 </Window>
