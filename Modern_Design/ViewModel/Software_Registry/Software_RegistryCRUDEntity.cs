@@ -4,12 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Modern_Design.ViewModel.Software_Registry
 {
   
     class Software_RegistryCRUDEntity
     {
+
+        private string _textButtonOk;
+        public string TextButtonOk { get=>_textButtonOk; set=>_textButtonOk=value; }
 
         private Model.Software_Registry _Software_Registry;
         public Model.Software_Registry Software_Registry { get=>_Software_Registry; set=>_Software_Registry=value; }
@@ -18,17 +22,40 @@ namespace Modern_Design.ViewModel.Software_Registry
             if (crud==Model.Enums.CRUD.Create)
             {
                 _Software_Registry = new Model.Software_Registry();
+                Excecute = new RelayCommand(()=> { Create_Software_Registry.Execute(null); });
+                _textButtonOk = crud.ToString();
+
             }
-            else if((crud == Model.Enums.CRUD.Delete)|| (crud == Model.Enums.CRUD.Update))
+            else if((crud == Model.Enums.CRUD.Delete))
             {
                 if (_Registry != null)
                 {
                     _Software_Registry = _Registry;
+                    Excecute = new RelayCommand(() => { Delete_Software_Registry.Execute(null); });
+
+                    _textButtonOk = crud.ToString();
                 }
                 else
                 {
                     throw new Exception("Null parameter");
                 }
+            }
+            else if(crud == Model.Enums.CRUD.Update)
+            {
+                if (_Registry != null)
+                {
+                    _Software_Registry = _Registry;
+                    Excecute = new RelayCommand(() => { Edit_Software_Registry.Execute(null); });
+
+                    _textButtonOk = crud.ToString();
+                }
+                else
+                {
+                    Excecute = new RelayCommand(() => { Edit_Software_Registry.Execute(null); });
+
+                    // throw new Exception("Null parameter");
+                }
+
             }
           
 
@@ -37,11 +64,11 @@ namespace Modern_Design.ViewModel.Software_Registry
         /// <summary>
         /// Команда для редактирования записи
         /// </summary>
-        public RelayCommand Edite_Software_Registry
+        public RelayCommand Edit_Software_Registry
         {
             get
             {
-                return new RelayCommand(async () => { });
+                return new RelayCommand(async () => { MessageBox.Show("Edite"); });
             }
         }
         /// <summary>
@@ -51,7 +78,7 @@ namespace Modern_Design.ViewModel.Software_Registry
         {
             get
             {
-                return new RelayCommand(async () => { });
+                return new RelayCommand(async () => { MessageBox.Show("OK"); });
             }
         }
         /// <summary>
@@ -61,9 +88,26 @@ namespace Modern_Design.ViewModel.Software_Registry
         {
             get
             {
-                return new RelayCommand(async () => { });
+                return new RelayCommand(async () => { MessageBox.Show("OK"); });
             }
         }
+
+        public RelayCommand<string> SearchStaff
+        {
+            get
+            {
+                return new RelayCommand<string>((string property)=> 
+                {
+                    _Software_Registry = new Model.Software_Registry();
+                    _Software_Registry.GetType().GetProperty(property).SetValue(_Software_Registry, "ppp", null) ;
+                
+                
+                });
+            }
+        }
+
+        public RelayCommand Excecute { get; set; }
+
         #endregion
     }
 }

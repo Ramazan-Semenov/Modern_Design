@@ -19,9 +19,15 @@ namespace Modern_Design.View.Software_Registry
     /// </summary>
     public partial class Software_RegistryCRUDView : Window
     {
+        //public Software_RegistryCRUDView(Model.Software_Registry software_Registry, Model.Enums.CRUD crud)
+        //{
+        //    InitializeComponent();
+        //    DataContext = new ViewModel.Software_Registry.Software_RegistryCRUDEntity(crud,software_Registry);
+        //} 
         public Software_RegistryCRUDView()
         {
             InitializeComponent();
+            DataContext = new ViewModel.Software_Registry.Software_RegistryCRUDEntity(Model.Enums.CRUD.Update,null);
         }
     }
 }

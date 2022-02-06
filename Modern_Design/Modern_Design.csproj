@@ -83,6 +83,7 @@
     <Compile Include="Model\Software_Registry.cs" />
     <Compile Include="Model\task_book.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\SearchObject\SearchObjectViewModel.cs" />
     <Compile Include="ViewModel\Software_Registry\Software_RegistryCRUDEntity.cs" />
     <Compile Include="ViewModel\Software_Registry\Software_RegistryViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
@@ -92,6 +93,9 @@
     <Compile Include="View\LayoutChangeEventArgs.cs" />
     <Compile Include="View\ManagerTask.xaml.cs">
       <DependentUpon>ManagerTask.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SearchObject\SearchObject.xaml.cs">
+      <DependentUpon>SearchObject.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Software_Registry\Software_Registry.xaml.cs">
       <DependentUpon>Software_Registry.xaml</DependentUpon>
@@ -116,6 +120,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ManagerTask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SearchObject\SearchObject.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

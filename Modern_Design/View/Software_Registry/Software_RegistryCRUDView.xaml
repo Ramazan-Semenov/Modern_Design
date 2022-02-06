@@ -103,7 +103,7 @@
             <Grid.ColumnDefinitions> 
                 <ColumnDefinition Width="70"/>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
             <Label Content="Владелец" Grid.Column="0" ></Label>
             <TextBox Text="{Binding Software_Registry.owner}" Grid.Column="1"></TextBox>
@@ -145,7 +145,7 @@
             <Grid.ColumnDefinitions> 
                 <ColumnDefinition Width="100"/>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
             <Label Content="Cопровождение" Grid.Column="0" ></Label>
             <TextBox Text="{Binding Software_Registry.maintenance}" Grid.Column="1"></TextBox>
@@ -156,7 +156,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="70"/>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0">
                 <TextBlock Text="Cсылка на проект" TextWrapping="Wrap"></TextBlock>
@@ -188,6 +188,7 @@
                 
             </TextBox>
         </Grid>
+        <Button Command="{Binding Excecute}" Content="{Binding TextButtonOk}" Grid.Column="2" Grid.Row="6" MaxHeight="30" MaxWidth="150"></Button>
         <!--<Grid Grid.Row="1" Grid.Column="2">
             <Grid.ColumnDefinitions> 
                 <ColumnDefinition Width="65"/>

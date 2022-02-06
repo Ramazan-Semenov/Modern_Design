@@ -1,0 +1,59 @@
+﻿<Window x:Class="Modern_Design.View.SearchObject.SearchObject"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Modern_Design.View.SearchObject" xmlns:Control="http://filterdatagrid.control.com/2021"
+        mc:Ignorable="d"
+        Title="Поиск объекта" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="30"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" >
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Поиск: "></Label>
+                <TextBox Width="200"></TextBox>
+                <Button MinWidth="70" Content="Найти"></Button>
+                <Separator Visibility="Hidden"  Width="40"></Separator>
+                <Label Content="Искать по: "></Label>
+                <ComboBox Width="200"
+                          ItemsSource="{Binding search_by}"
+                          SelectedItem="{Binding Selected_by}"
+                          ></ComboBox>
+            </StackPanel>
+            
+        </Grid>
+        <Grid Grid.Column="0" Grid.ColumnSpan="5" 
+            Grid.Row="1" Grid.RowSpan="4">
+            <Control:FilterDataGrid 
+            
+            ItemsSource="{Binding ListResultObject}" SelectedItem="{Binding SelectedItemResult}">
+            </Control:FilterDataGrid>
+        </Grid>
+
+        <Grid Grid.Column="0" Grid.ColumnSpan="5" 
+            Grid.Row="5">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="{Binding Selected_by}"></Label>
+                <TextBox Text="{Binding ResultTextPropertyValue}"></TextBox>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="5" Grid.Row="6">
+            <Button MaxHeight="40" MaxWidth="130" Command="{Binding SendResult}" Content="Ок"></Button>
+        </Grid>
+    </Grid>
+</Window>
