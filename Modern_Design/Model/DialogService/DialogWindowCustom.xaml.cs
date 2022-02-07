@@ -12,18 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Modern_Design.View.Software_Registry
+namespace Modern_Design.Model.DialogService
 {
     /// <summary>
-    /// Логика взаимодействия для Software_RegistryCRUDView.xaml
+    /// Логика взаимодействия для DialogWindowCustom.xaml
     /// </summary>
-    public partial class Software_RegistryCRUDView : Window
+    public partial class DialogWindowCustom : Window, IDialogWindow
     {
-        public Software_RegistryCRUDView()
+        public DialogWindowCustom()
         {
             InitializeComponent();
-            var d = new Model.CRUDOP.CRUDSoftware_Registry().Read();
-            DataContext = new ViewModel.Software_Registry.Software_RegistryCRUDEntity(Model.Enums.CRUD.Create,null);
         }
     }
 }

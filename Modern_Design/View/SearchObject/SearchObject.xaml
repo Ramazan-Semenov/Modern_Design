@@ -26,12 +26,15 @@
         <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" >
             <StackPanel Orientation="Horizontal">
                 <Label Content="Поиск: "></Label>
-                <TextBox Width="200"></TextBox>
-                <Button MinWidth="70" Content="Найти"></Button>
+                <TextBox Text="{Binding ParamSearch}" Width="200"></TextBox>
+                <Button Command="{Binding SearchCommand}" MinWidth="70" Content="Найти"></Button>
                 <Separator Visibility="Hidden"  Width="40"></Separator>
                 <Label Content="Искать по: "></Label>
                 <ComboBox Width="200"
-                          ItemsSource="{Binding search_by}"
+                          IsReadOnly="True"
+                          IsEditable="True"
+                          Text="{Binding list_search_by[0]}"
+                          ItemsSource="{Binding list_search_by}"
                           SelectedItem="{Binding Selected_by}"
                           ></ComboBox>
             </StackPanel>
@@ -40,20 +43,21 @@
         <Grid Grid.Column="0" Grid.ColumnSpan="5" 
             Grid.Row="1" Grid.RowSpan="4">
             <Control:FilterDataGrid 
-            
+                Name="DG"
+            IsReadOnly="True"
             ItemsSource="{Binding ListResultObject}" SelectedItem="{Binding SelectedItemResult}">
             </Control:FilterDataGrid>
         </Grid>
 
-        <Grid Grid.Column="0" Grid.ColumnSpan="5" 
+        <!--<Grid Visibility="Collapsed" Grid.Column="0" Grid.ColumnSpan="5" 
             Grid.Row="5">
             <StackPanel Orientation="Horizontal">
-                <Label Content="{Binding Selected_by}"></Label>
-                <TextBox Text="{Binding ResultTextPropertyValue}"></TextBox>
+                <Label Content="{Binding Selected_by, UpdateSourceTrigger=PropertyChanged}"></Label>
+                <TextBox BorderThickness="0" Text="{Binding ResultTextPropertyValue}"></TextBox>
             </StackPanel>
-        </Grid>
+        </Grid>-->
         <Grid Grid.Column="5" Grid.Row="6">
-            <Button MaxHeight="40" MaxWidth="130" Command="{Binding SendResult}" Content="Ок"></Button>
+            <Button MaxHeight="40" MaxWidth="130" Command="{Binding SendResult}" Content="Ок" Click="Button_Click"></Button>
         </Grid>
     </Grid>
 </Window>

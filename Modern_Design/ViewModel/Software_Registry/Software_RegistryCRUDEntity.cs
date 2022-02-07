@@ -1,6 +1,8 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +11,7 @@ using System.Windows;
 namespace Modern_Design.ViewModel.Software_Registry
 {
   
-    class Software_RegistryCRUDEntity
+    class Software_RegistryCRUDEntity:ViewModelBase
     {
 
         private string _textButtonOk;
@@ -19,6 +21,7 @@ namespace Modern_Design.ViewModel.Software_Registry
         public Model.Software_Registry Software_Registry { get=>_Software_Registry; set=>_Software_Registry=value; }
         public Software_RegistryCRUDEntity(Model.Enums.CRUD crud, Model.Software_Registry _Registry = null)
         {
+
             if (crud==Model.Enums.CRUD.Create)
             {
                 _Software_Registry = new Model.Software_Registry();
@@ -26,7 +29,7 @@ namespace Modern_Design.ViewModel.Software_Registry
                 _textButtonOk = crud.ToString();
 
             }
-            else if((crud == Model.Enums.CRUD.Delete))
+            else if(crud == Model.Enums.CRUD.Delete)
             {
                 if (_Registry != null)
                 {
@@ -46,7 +49,6 @@ namespace Modern_Design.ViewModel.Software_Registry
                 {
                     _Software_Registry = _Registry;
                     Excecute = new RelayCommand(() => { Edit_Software_Registry.Execute(null); });
-
                     _textButtonOk = crud.ToString();
                 }
                 else
@@ -68,7 +70,9 @@ namespace Modern_Design.ViewModel.Software_Registry
         {
             get
             {
-                return new RelayCommand(async () => { MessageBox.Show("Edite"); });
+                return new RelayCommand(async () => { new Model.CRUDOP.CRUDSoftware_Registry().Update(_Software_Registry);
+                    MessageBox.Show("Записть обновлена");
+                });
             }
         }
         /// <summary>
@@ -78,7 +82,9 @@ namespace Modern_Design.ViewModel.Software_Registry
         {
             get
             {
-                return new RelayCommand(async () => { MessageBox.Show("OK"); });
+                return new RelayCommand(async () => { new Model.CRUDOP.CRUDSoftware_Registry().Delete(_Software_Registry);
+                    MessageBox.Show("Запись удалена");
+                });
             }
         }
         /// <summary>
@@ -88,7 +94,10 @@ namespace Modern_Design.ViewModel.Software_Registry
         {
             get
             {
-                return new RelayCommand(async () => { MessageBox.Show("OK"); });
+                return new RelayCommand(async () => { new Model.CRUDOP.CRUDSoftware_Registry().Create( _Software_Registry);
+
+                    MessageBox.Show("Запись добавлена");
+                });
             }
         }
 
@@ -98,10 +107,28 @@ namespace Modern_Design.ViewModel.Software_Registry
             {
                 return new RelayCommand<string>((string property)=> 
                 {
-                    _Software_Registry = new Model.Software_Registry();
-                    _Software_Registry.GetType().GetProperty(property).SetValue(_Software_Registry, "ppp", null) ;
-                
-                
+                    try
+                    {
+
+
+                        List<Model.Software_Registry> list = new List<Model.Software_Registry>();
+                        list.Add(new Model.Software_Registry { id = 1, customer = "df" });
+                        list.Add(new Model.Software_Registry { id = 1, customer = "34" });
+                        list.Add(new Model.Software_Registry { id = 1, customer = "dsfgsdf", owner = "fffffff" });
+
+                        View.SearchObject.SearchObject searchObject = new View.SearchObject.SearchObject(list);
+                        searchObject.ShowDialog();
+
+                        var result = searchObject.Selected.GetType().GetProperty(property).GetValue(searchObject.Selected, null);
+
+                        _Software_Registry.GetType().GetProperty(property).SetValue(_Software_Registry, result, null);
+                        RaisePropertyChanged(nameof(Software_Registry));
+
+                    }catch(Exception exp)
+                    {
+                        MessageBox.Show(exp.Message);
+                    }
+                  
                 });
             }
         }

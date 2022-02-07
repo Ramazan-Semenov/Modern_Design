@@ -79,6 +79,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\CRUDOP\CRUDSoftware_Registry.cs" />
+    <Compile Include="Model\DialogService\DialogService.cs" />
+    <Compile Include="Model\DialogService\DialogViewModelBase.cs" />
+    <Compile Include="Model\DialogService\DialogWindowCustom.xaml.cs">
+      <DependentUpon>DialogWindowCustom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DialogService\IDialogService.cs" />
+    <Compile Include="Model\DialogService\IDialogWindow.cs" />
     <Compile Include="Model\Enums\CRUD.cs" />
     <Compile Include="Model\Software_Registry.cs" />
     <Compile Include="Model\task_book.cs" />
@@ -115,6 +123,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Model\DialogService\DialogWindowCustom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Connector.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -163,9 +175,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Icons\anime-no-game-no-life-56672.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\op.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\871fb7caff1305fbe0f2b9fe69478b97.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

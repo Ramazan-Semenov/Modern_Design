@@ -9,5 +9,7 @@ namespace Modern_Design.ViewModel.Software_Registry
    public class Software_RegistryViewModel
     {
         public List<Model.Software_Registry> software_Registries { get; set; } = new List<Model.Software_Registry>();
+
+
     }
 }

@@ -19,9 +19,17 @@ namespace Modern_Design.View.SearchObject
     /// </summary>
     public partial class SearchObject : Window
     {
-        public SearchObject()
+        public object Selected { get {return DG.SelectedItem; } } 
+
+        public SearchObject(IEnumerable<object> obsoleteCollection)
         {
             InitializeComponent();
+            DataContext = new ViewModel.SearchObject.SearchObjectViewModel(obsoleteCollection);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
