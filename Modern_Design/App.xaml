@@ -7,5 +7,48 @@
         </ResourceDictionary>
     </Application.Resources>
 </Application>
-<!--c:\users\lenovo\source\repos\modern_design\modern_design\view\software_registry.xaml
-c:\users\lenovo\source\repos\modern_design\modern_design\view\software_registry.xaml.cs-->
+
+<<!--
+    CREATE TABLE [dbo].[Software_Registrys] (
+    [id]                    INT            IDENTITY (1, 1) NOT NULL,
+    [priority]              NVARCHAR (MAX) NULL,
+    [product_type]          NVARCHAR (MAX) NULL,
+    [product_name]          NVARCHAR (MAX) NULL,
+    [short_description]     NVARCHAR (MAX) NULL,
+    [type_of_product]       NVARCHAR (MAX) NULL,
+    [customer]              NVARCHAR (MAX) NULL,
+    [owner]                 NVARCHAR (MAX) NULL,
+    [main_developer]        NVARCHAR (MAX) NULL,
+    [number_of_users]       NVARCHAR (MAX) NULL,
+    [stage]                 NVARCHAR (MAX) NULL,
+    [maintenance]           NVARCHAR (MAX) NULL,
+    [link_repository]       NVARCHAR (MAX) NULL,
+    [link_description]      NVARCHAR (MAX) NULL,
+    [comments]              NVARCHAR (MAX) NULL,
+    [name_link_repository]  NVARCHAR (MAX) NULL,
+    [name_link_description] NVARCHAR (MAX) NULL,
+    CONSTRAINT [PK_Software_Registry] PRIMARY KEY CLUSTERED ([id] ASC)
+);
+    
+    CREATE TABLE [dbo].[relationship_tasks] (
+    [ID_Task_Book_connection_with] INT NOT NULL,
+    [ID_Task_Book]                 INT NOT NULL,
+    CONSTRAINT [PK_relationship_tasks] PRIMARY KEY CLUSTERED ([ID_Task_Book_connection_with] ASC, [ID_Task_Book] ASC)
+);
+    
+    
+    CREATE TABLE [dbo].[list_implicit_request] (
+    [id]                    INT            IDENTITY (1, 1) NOT NULL,
+    [name]                  NVARCHAR (MAX) NULL,
+    [department]            NVARCHAR (MAX) NULL,
+    [implicit_request_json] NVARCHAR (MAX) NULL,
+    CONSTRAINT [PK_list_implicit_request] PRIMARY KEY CLUSTERED ([id] ASC)
+);
+    
+    
+    
+    
+    
+    
+    
+    -->
