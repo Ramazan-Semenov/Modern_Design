@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Modern_Design.ViewModel" xmlns:control="http://filterdatagrid.control.com/2021" 
+        xmlns:local="clr-namespace:Modern_Design.ViewModel" xmlns:control="http://filterdatagrid.control.com/2021" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Software_Registry" Height="450" Width="800">
    
@@ -23,6 +23,8 @@
                 <Button Command="{Binding OpenWindowDeleteSoftware_Registry}" Background="Transparent" BorderThickness="0" Height="50" Width="100">
                     <TextBlock TextWrapping="Wrap" Text="Удалить"></TextBlock>
                 </Button>
+
+                <materialDesign:Badged ></materialDesign:Badged>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
